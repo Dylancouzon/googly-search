@@ -3,12 +3,15 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema
 
 var BookSchema = new Schema({
-    title: {
+    name: {
         type: String,
         required: true
     },
-    authors: {
+    author: {
         type: String,
+    },
+    publishedDate: {
+        type: String
     },
     description: {
         type: String
@@ -19,7 +22,6 @@ var BookSchema = new Schema({
     link: {
         type: String,
         required: 'URL can\'t be empty',
-        unique: true
     }
 })
 

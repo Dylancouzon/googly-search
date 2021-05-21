@@ -14,14 +14,13 @@ class App extends Component {
   state = {
     books: [],
     savedbooks: [],
-    page: true
+    page: true,
+    search: ""
   };
 
   componentDidMount() {
-    //The api call works on api.js but returns undefined here ???
-    const getBooks = API.getBooks("HarryPotter");
-    this.setState({ books: getBooks });
-    setTimeout(function(){ console.log(getBooks) }, 1000);
+    // this.setState({ books: getBooks });
+
 
   // Result object example
   //   {
@@ -37,6 +36,37 @@ class App extends Component {
   // }
   }
 
+  handleSearchbutton = () => {
+    API.getBooks(this.state.search)
+    .then(res => {
+      const newData = [];
+      console.log(res);
+      res.data.items.forEach((book)=>{
+        let imageURL;
+        if(book.volumeInfo.imageLinks){
+          imageURL = book.volumeInfo.imageLinks.thumbnail;
+        }else{
+          imageURL = "";
+        }
+        newData.push({
+              name: book.volumeInfo.title,
+              author: book.volumeInfo.authors[0],
+              publishedDate: book.volumeInfo.publishedDate,
+              description:book.volumeInfo.description,
+              image: imageURL,
+              link: book.selfLink
+        });
+      });
+      this.setState({ books: newData })
+    });
+  }
+
+  handleInputChange = (e) => {
+    const searchVal = e.target.value;
+    this.setState({
+      search: searchVal
+    });
+  }
 
   // handlesavebutton(id) => {
   //   API.saveBook(this.state.books[id])
@@ -60,8 +90,10 @@ class App extends Component {
       <Container className="p-3" >
         <Navbar />
         <Jumbotron />
-        <Search />
-
+        <Search handleSearchbutton={this.handleSearchbutton} handleInputChange={this.handleInputChange} />
+        {this.state.books.map((book)=>{
+          return <Book value={book} />;
+        })}
 
 
 

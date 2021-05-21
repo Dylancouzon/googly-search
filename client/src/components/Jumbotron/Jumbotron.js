@@ -4,7 +4,7 @@ import CSS from "./Jumbotron.css"
 import Container from 'react-bootstrap/Container';
 import BSJumbotron from 'react-bootstrap/Jumbotron';
 
-var styles ={
+var styles ={ 
     backgroundImage: 'url(./hero.png)',
     color: 'white',
     objectFit: 'contain'

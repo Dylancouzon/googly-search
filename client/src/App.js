@@ -68,23 +68,22 @@ class App extends Component {
     });
   }
 
-  // handlesavebutton(id) => {
-  //   API.saveBook(this.state.books[id])
-  // }
+  handleSaveButton = (id) => {
+    API.saveBook(this.state.books[id])
+    .then(() => this.updateSavedBooks());
+  }
   // handledeletebutton(id) => {
   //   API.deleteBook(id)
   //   updateSavedBooks()
   // }
 
-  // updateSavedBooks(){
-  //   const books = API.getSavedBooks();
-  //   this.setState({
-  //     savedbooks: books
-  //   });
-  // }
-  // {page ?
-  //   this.state.books.map(<Book value={}/>) 
-  // : this.state.saveBooks.map(<Book value={}/>) }
+  updateSavedBooks = () => {
+    const books = API.getSavedBooks();
+    this.setState({
+      savedbooks: books
+    });
+  }
+
   render() {
     return (
       <Container className="p-3" >
@@ -92,7 +91,7 @@ class App extends Component {
         <Jumbotron />
         <Search handleSearchbutton={this.handleSearchbutton} handleInputChange={this.handleInputChange} />
         {this.state.books.map((book)=>{
-          return <Book value={book} />;
+          return <Book value={book} handleSaveButton={this.handleSaveButton} />;
         })}
 
 

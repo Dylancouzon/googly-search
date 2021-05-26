@@ -72,10 +72,11 @@ class App extends Component {
     API.saveBook(this.state.books[id])
     .then(() => this.updateSavedBooks());
   }
-  // handledeletebutton(id) => {
-  //   API.deleteBook(id)
-  //   updateSavedBooks()
-  // }
+
+  handleDeleteButton = (id) => {
+    API.deleteBook(id)
+    .then(() => this.updateSavedBooks());
+  }
 
   updateSavedBooks = () => {
     const books = API.getSavedBooks();
@@ -93,9 +94,6 @@ class App extends Component {
         {this.state.books.map((book)=>{
           return <Book value={book} handleSaveButton={this.handleSaveButton} />;
         })}
-
-
-
       </Container>
     );
   }

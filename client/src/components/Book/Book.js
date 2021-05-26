@@ -21,7 +21,7 @@ var bstyles = {
     float: "right"
 };
 
-const Book = ({value}) => (
+const Book = ({value, handleSaveButton}) => (
     <Container style={styles}>
         <Figure >
         <Button style={bstyles} variant="light" className="mt-3 mr-2">View</Button>{' '}

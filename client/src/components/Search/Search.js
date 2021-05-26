@@ -4,7 +4,7 @@ import { Col, Row, InputGroup, FormControl, Container, Button } from 'react-boot
 
 
 
-const Search = () => (
+const Search = (props) => (
     <Container >
         <Row className="justify-content-md-center">
             <Col xs lg="6">
@@ -12,9 +12,9 @@ const Search = () => (
                     <InputGroup.Prepend>
                         <InputGroup.Text>Book Name:</InputGroup.Text>
                     </InputGroup.Prepend>
-                    <FormControl />
+                    <FormControl onChange={props.handleInputChange}/>
                     <InputGroup.Append>
-                        <Button variant="outline-secondary">Search</Button>
+                        <Button variant="outline-secondary" onClick={()=> props.handleSearchbutton()}>Search</Button>
                     </InputGroup.Append>
                 </InputGroup>
             </Col>

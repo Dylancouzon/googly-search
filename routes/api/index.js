@@ -25,7 +25,14 @@ router.post('/books', (req, res) => {
 });
 
 router.delete('/books/:id', async (req, res) => {
-
+  Book.remove({ _id: req.params.id })
+    .then(bookData => {
+      res.status(200).json(bookData);
+    })
+    .catch(err => {
+      console.log(err)
+      res.status(500).json({ message: "Book not found" })
+    })
 });
 
 

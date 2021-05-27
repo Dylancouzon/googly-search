@@ -13,7 +13,6 @@ router.get('/books', (req, res) => {
 });
 
 router.post('/books', (req, res) => {
-
   Book.create(req.body)
     .then(bookData => {
       res.status(200).json(bookData);

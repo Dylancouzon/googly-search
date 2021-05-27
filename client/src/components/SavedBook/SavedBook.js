@@ -1,6 +1,5 @@
 import React from 'react';
 
-
 import Figure from 'react-bootstrap/Figure'
 import Container from 'react-bootstrap/Container';
 import Button from 'react-bootstrap/Button';
@@ -38,6 +37,7 @@ const savedBook = ({value, handleDeleteButton}) => (
                 src= {value.image}
             />
             <p>{value.description}</p>
+            <a href={value.link} target="blank">See Book Here</a>
         </Figure>
 
     </Container>

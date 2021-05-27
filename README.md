@@ -4,6 +4,8 @@
 
 Our application leverages Google Books API to bring back the most important content from your favorite books. You can then save them into your own collection so you can reference them later.
 
+Please checkout our [application!](https://googly-search.herokuapp.com/)
+
 ![google-books-search](./client/assets/images/google-search.gif)
 
 

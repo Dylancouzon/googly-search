@@ -4,23 +4,38 @@
 
 Our application leverages Google Books API to bring back the most important content from your favorite books. You can then save them into your own collection so you can reference them later.
 
-![google-books-search](./client/assets/images/google-books-search.gif)
+![google-books-search](./client/assets/images/google-search.gif)
+
+
+Table of Contents
+
+1. [Technology](#technology)
+2. [Schema](#schema)
+3. [Utils](#utils)
+4. [React Components]()
+5. [Usage & Features]()
+6. [License](#license)
+7. [Future Development]()
+8. [Contact Us]()
+
+<br>
+<hr>
 
 ## Technology
 
-<img align="left" alt="html" width="25x" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/html/html.png"/> &nbsp;
-<img align="left" alt="css" width="25x" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/css/css.png"/> &nbsp;
-<img align="left" alt="javascript" width="25x" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/javascript/javascript.png"/> &nbsp;
+<img align="left" alt="html" width="25x" src="./client/assets/images/html5.png"/> &nbsp;
+<img align="left" alt="css" width="25x" src="./client/assets/images/css.png"/> &nbsp;
+<img align="left" alt="javascript" width="25x" src="./client/assets/images/javascript.png"/> &nbsp;
 <img align="left" alt="react" width="25x" src="./client/assets/images/logo192.png"/> &nbsp;
 <img align="left" alt="react bootstrap" width="25x" src="./client/assets/images/react-bootstrap.svg"/> &nbsp;
-<img align="left" alt="bootstrap" width="25x" src="https://camo.githubusercontent.com/bec2c92468d081617cb3145a8f3d8103e268bca400f6169c3a68dc66e05c971e/68747470733a2f2f76352e676574626f6f7473747261702e636f6d2f646f63732f352e302f6173736574732f6272616e642f626f6f7473747261702d6c6f676f2d736861646f772e706e67"/> &nbsp;
+<img align="left" alt="bootstrap" width="25x" src="./client/assets/images/bootstrap.png"/> &nbsp;
 <img align="left" alt="atlas-mongoDB" width="25px" src="./client/assets/images/atlas-mongoDB-1.png"/> &nbsp;
 <img align="left" alt="mongoose" width="25px" src="./client/assets/images/mongoose.png"/> &nbsp;
-<img align="left" alt="Node.js" width="25px" src="https://cdn.iconscout.com/icon/free/png-512/node-js-1174925.png"/> &nbsp;
-<img align="left" alt="SQL" width="25px" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/npm/npm.png"/> &nbsp;
-<img align="left" alt="express" width="25px" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/express/express.png"/> &nbsp;
-<img align="left" alt="SQL" width="25px" src="https://raw.githubusercontent.com/motdotla/dotenv/master/dotenv.png"/> &nbsp;
-<img align="left" alt="JavaScript" width="25x" src="https://cdn.iconscout.com/icon/free/png-512/heroku-5-569467.png"/> &nbsp;
+<img align="left" alt="Node.js" width="25px" src="./client/assets/images/node-js.png"/> &nbsp;
+<img align="left" alt="npm" width="25px" src="./client/assets/images/npm.png"/> &nbsp;
+<img align="left" alt="express" width="25px" src="./client/assets/images/express.png"/> &nbsp;
+<img align="left" alt="dotenv" width="25px" src="./client/assets/images/dotenv.png"/> &nbsp;
+<img align="left" alt="heroku" width="25x" src="https://cdn.iconscout.com/icon/free/png-512/heroku-5-569467.png"/> &nbsp;
 
 <br><br>
 
@@ -42,6 +57,92 @@ Here are the technologies and tools used to build this application.
 - [HEROKU](https://www.heroku.com/)
 - [Atlas mongoDB](https://www.mongodb.com/)
 
+
+## Schema
+
+Our book schema to store the **google api** response has 6 properties not including the **_id** that mongoose assigns.
+
+```BookSchema
+var BookSchema = new Schema({
+    name: {
+        type: String,
+    },
+    author: {
+        type: String,
+    },
+    publishedDate: {
+        type: String
+    },
+    description: {
+        type: String
+    },
+    image: {
+        type: String,
+    },
+    link: {
+        type: String,
+        required: 'URL can\'t be empty',
+    }
+})
+```
+
+
+## Utils
+
+On the client side, we have these 4 utility functions to make an api call to our server.
+
+``` Utils
+  // Get book based on search
+  getBooks: function(book) {
+      return axios.get('https://www.googleapis.com/books/v1/volumes?q=' + book)
+  },
+  // Get list of saved books in database
+  getSavedBooks: function() {
+      return axios.get('/api/books')
+  },
+  // Save book to database
+  saveBook: function(bookData) {
+      return axios.post('/api/books', bookData)
+      // Mongoose
+  },
+  // Delete book from database
+  deleteBook: function(bookId) {
+      return axios.delete('/api/books/' + bookId)
+      //Mongoose 
+  },
+```
+
+
+## React Components
+
+Here is our **src** folder directory with its many components and pages:
+``` src folder
+<!-- Within our 'client' folder: -->
+
+src
+├── components
+│   ├── Book
+│   │   └── Book.js
+│   ├── Jumbotron
+│   │   └── Jumbotron.js
+│   ├── Main
+│   │   └── Main.js
+│   ├── Navbar
+│   │   └── Navbar.js
+│   ├── SavedBook
+│   │   └── SavedBook.js
+│   └── Search
+│       └── Search.js
+├── pages
+│   └── Home.js
+│   └── Saved.js
+├── utils
+│   └── API.js
+├── App.js
+├── index.css
+└── index.js
+└── registerServiceWorker.js
+```
 
 ## Usage & Features
 

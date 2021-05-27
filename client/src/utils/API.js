@@ -4,7 +4,6 @@ export default {
     // Get book based on search
     getBooks: function(book) {
         return axios.get('https://www.googleapis.com/books/v1/volumes?q=' + book)
-       
     },
     // Get list of saved books in database
     getSavedBooks: function() {

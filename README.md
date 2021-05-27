@@ -43,6 +43,92 @@ Here are the technologies and tools used to build this application.
 - [Atlas mongoDB](https://www.mongodb.com/)
 
 
+## Schema
+
+Our book schema to store the **google api** response has 6 properties not including the **_id** that mongoose assigns.
+
+```BookSchema
+var BookSchema = new Schema({
+    name: {
+        type: String,
+    },
+    author: {
+        type: String,
+    },
+    publishedDate: {
+        type: String
+    },
+    description: {
+        type: String
+    },
+    image: {
+        type: String,
+    },
+    link: {
+        type: String,
+        required: 'URL can\'t be empty',
+    }
+})
+```
+
+
+## Utils
+
+On the client side, we have these 4 utility functions to make an api call to our server.
+
+``` Utils
+  // Get book based on search
+  getBooks: function(book) {
+      return axios.get('https://www.googleapis.com/books/v1/volumes?q=' + book)
+  },
+  // Get list of saved books in database
+  getSavedBooks: function() {
+      return axios.get('/api/books')
+  },
+  // Save book to database
+  saveBook: function(bookData) {
+      return axios.post('/api/books', bookData)
+      // Mongoose
+  },
+  // Delete book from database
+  deleteBook: function(bookId) {
+      return axios.delete('/api/books/' + bookId)
+      //Mongoose 
+  },
+```
+
+
+## React Components
+
+Here is our **src** folder directory with its many components and pages:
+``` src folder
+<!-- Within our 'client' folder: -->
+
+src
+├── components
+│   ├── Book
+│   │   └── Book.js
+│   ├── Jumbotron
+│   │   └── Jumbotron.js
+│   ├── Main
+│   │   └── Main.js
+│   ├── Navbar
+│   │   └── Navbar.js
+│   ├── SavedBook
+│   │   └── SavedBook.js
+│   └── Search
+│       └── Search.js
+├── pages
+│   └── Home.js
+│   └── Saved.js
+├── utils
+│   └── API.js
+├── App.js
+├── index.css
+└── index.js
+└── registerServiceWorker.js
+```
+
 ## Usage & Features
 
 **Google Books API**

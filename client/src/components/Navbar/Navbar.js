@@ -6,12 +6,12 @@ import BSNavbar from 'react-bootstrap/Navbar';
 
 const Navbar = () => (
     <BSNavbar bg="dark" className="justify-content-between" variant="dark">
-    <BSNavbar.Brand href="#home">
+    <BSNavbar.Brand href="/">
       <img
         alt=""
-        src="https://blog.hubspot.com/hubfs/image8-2.jpg"
-        width="30"
-        height="30"
+        src="https://image.similarpng.com/very-thumbnail/2020/12/Illustration-of-Google-icon-on-transparent-background-PNG.png"
+        width="35"
+        height="35"
         className="d-inline-block align-top"
       />{' '}
       Google-Books Search

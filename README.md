@@ -1,6 +1,6 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)<br>
 
-# Google-Books-Search
+# Googly-Search
 
 Our application leverages Google Books API to bring back the most important content from your favorite books. You can then save them into your own collection so you can reference them later.
 

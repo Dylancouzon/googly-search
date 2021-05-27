@@ -68,10 +68,16 @@ class Home extends Component {
         return (
 
             <>
-                <Search handleSearchbutton={this.handleSearchbutton} handleInputChange={this.handleInputChange} />
-        {this.state.books.map((book)=>{
-            return <Book value={book} handleSaveButton={this.handleSaveButton} />;
-        })}
+                <Search 
+                    handleSearchbutton={this.handleSearchbutton} 
+                    handleInputChange={this.handleInputChange} 
+                />
+                {this.state.books.map((book)=>{
+                    return <Book 
+                        value={book} 
+                        handleSaveButton={this.handleSaveButton} 
+                    />;
+                })}
             </>
         );
     }

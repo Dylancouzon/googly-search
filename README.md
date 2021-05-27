@@ -12,14 +12,15 @@ Table of Contents
 1. [Technology](#technology)
 2. [Schema](#schema)
 3. [Utils](#utils)
-4. [React Components]()
-5. [Usage & Features]()
+4. [React Components](https://github.com/dnovelli1/classproject#react-components)
+5. [Usage & Features](https://github.com/dnovelli1/classproject#usage--features)
 6. [License](#license)
-7. [Future Development]()
-8. [Contact Us]()
+7. [Future Development](https://github.com/dnovelli1/classproject#future-development)
+8. [Contact Us](https://github.com/dnovelli1/classproject#contact-us)
 
 <br>
 <hr>
+<br>
 
 ## Technology
 
@@ -209,6 +210,10 @@ SOFTWARE.
 
 ## Future Development
 
+Some future development opportunities are:
+- onSubmit for the Search bar on the HomePage
+- Interactive confirmation that item is saved i.e. removing the card for Book when it is saved
+- Fix hero image sizing inside of Jumbotron
 
 ## Contact Us
 

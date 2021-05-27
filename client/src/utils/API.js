@@ -17,7 +17,7 @@ export default {
     },
     // Delete book from database
     deleteBook: function(bookId) {
-        return axios.delete('/api/books' + bookId)
+        return axios.delete('/api/books/' + bookId)
         //Mongoose 
     },
 }

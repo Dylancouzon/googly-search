@@ -23,7 +23,7 @@ var bstyles = {
 const savedBook = ({value, handleDeleteButton}) => (
     <Container style={styles}>
         <Figure >
-        <Button style={bstyles} variant="light" className="mt-3 mr-2" onClick={() => handleDeleteButton()}>Delete</Button>
+        <Button style={bstyles} variant="light" className="mt-3 mr-2" onClick={() => handleDeleteButton(value._id)}>Delete</Button>
             <Figure.Caption>
                 <h3>{value.name}</h3>
                 <h4>{value.author}</h4>

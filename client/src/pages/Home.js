@@ -32,7 +32,7 @@ class Home extends Component {
                         publishedDate: book.volumeInfo.publishedDate,
                         description: book.volumeInfo.description,
                         image: imageURL,
-                        link: book.selfLink
+                        link: book.volumeInfo.previewLink
                     });
                 });
                 this.setState({ books: newData })

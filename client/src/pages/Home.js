@@ -36,6 +36,7 @@ class Home extends Component {
                     });
                 });
                 this.setState({ books: newData })
+                console.log(this.state.books);
             });
     }
 
@@ -46,8 +47,8 @@ class Home extends Component {
         });
     }
 
-    handleSaveButton = (id) => {
-        API.saveBook(this.state.books[id])
+    handleSaveButton = (data) => {
+        API.saveBook(data)
             .then(() => this.updateSavedBooks());
     }
 
@@ -69,7 +70,7 @@ class Home extends Component {
             <>
                 <Search handleSearchbutton={this.handleSearchbutton} handleInputChange={this.handleInputChange} />
         {this.state.books.map((book)=>{
-          return <Book value={book} handleSaveButton={this.handleSaveButton} />;
+            return <Book value={book} handleSaveButton={this.handleSaveButton} />;
         })}
             </>
         );

@@ -17,8 +17,8 @@ const Navbar = () => (
       Google-Books Search
     </BSNavbar.Brand>
     <Form>
-      <Button className="mr-3">Search</Button>
-      <Button >Saved</Button>
+      <Button href="/" className="mr-3">Search</Button>
+      <Button href="/saved" >Saved</Button>
     </Form>
   </BSNavbar>
 );

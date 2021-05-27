@@ -6,6 +6,21 @@ Our application leverages Google Books API to bring back the most important cont
 
 ![google-books-search](./client/assets/images/google-search.gif)
 
+
+Table of Contents
+
+1. [Technology](#technology)
+2. [Schema](#schema)
+3. [Utils](#utils)
+4. [React Components]()
+5. [Usage & Features]()
+6. [License](#license)
+7. [Future Development]()
+8. [Contact Us]()
+
+<br>
+<hr>
+
 ## Technology
 
 <img align="left" alt="html" width="25x" src="./client/assets/images/html5.png"/> &nbsp;

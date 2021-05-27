@@ -14,6 +14,7 @@ class Saved extends Component {
     handleDeleteButton = (id) => {
         API.deleteBook(id)
             .then(() => this.updateSavedBooks());
+        this.loadBooks();
     }
 
     updateSavedBooks = () => {

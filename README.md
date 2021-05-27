@@ -77,7 +77,7 @@ When calling on the `API.getBooks` we deconstructed the json response so later o
 }
 ```
 
-Here is a snippet of what the **Google Books API** response looks like before we deconstruct it.
+Here is a snippet of what the **Google Books API** response looks like before we deconstruct it. *(not all fields are highlighted below)*
 
 ![api-google-books](./client/assets/images/api-google-books-response.PNG)
 

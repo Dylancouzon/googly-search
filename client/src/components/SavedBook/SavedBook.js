@@ -24,6 +24,7 @@ const savedBook = ({value, handleDeleteButton}) => (
     <Container style={styles}>
         <Figure >
         <Button style={bstyles} variant="light" className="mt-3 mr-2" onClick={() => handleDeleteButton(value._id)}>Delete</Button>
+        <Button style={bstyles} variant="light" className="mt-3 mr-2" href={value.link} target="_blank">View</Button>{' '}
             <Figure.Caption>
                 <h3>{value.name}</h3>
                 <h4>{value.author}</h4>
@@ -37,7 +38,7 @@ const savedBook = ({value, handleDeleteButton}) => (
                 src= {value.image}
             />
             <p>{value.description}</p>
-            <a href={value.link} target="blank">See Book Here</a>
+            
         </Figure>
 
     </Container>

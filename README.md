@@ -141,7 +141,7 @@ src
 │   └── API.js
 ├── App.js
 ├── index.css
-└── index.js
+├── index.js
 └── registerServiceWorker.js
 ```
 
@@ -183,6 +183,52 @@ Here is a snippet of what the **Google Books API** response looks like before we
 
 ![api-google-books](./client/assets/images/api-google-books-response.PNG)
 
+
+**MongoDB**
+
+We use MongoDB on the backend to store the user's **Saved** books where they can *view, add, and delete books from their **Saved** list. Shown below are our mongoose constructor functions:
+
+``` API endpoints and mongoose constructors
+<!-- Server-side API endpoints and mongoose constructor functions -->
+
+router.get('/books', (req, res) => {
+  Book.find({})
+    .then(bookData => {
+      res.status(200).json(bookData);
+    })
+    .catch(err => {
+      res.status(500).json(err)
+    })
+});
+
+router.post('/books', (req, res) => {
+  Book.create(req.body)
+    .then(bookData => {
+      res.status(200).json(bookData);
+    })
+    .catch(err => {
+      console.log(err)
+      res.status(500).json(err)
+    })
+});
+
+router.delete('/books/:id', async (req, res) => {
+  Book.remove({ _id: req.params.id })
+    .then(bookData => {
+      res.status(200).json(bookData);
+    })
+    .catch(err => {
+      console.log(err)
+      res.status(500).json({ message: "Book not found" })
+    })
+});
+```
+
+Here you can see how a user's **Saved** books list and them deleting a book.
+
+![saved-delete](./client/assets/images/saved-delete.gif)
+
+
 ## License
 
 MIT License
@@ -220,7 +266,7 @@ Some future development opportunities are:
 Please feel free to reach out to us or checkout our other individual works.
 
 Jake Novelli
-- [jakenovelli11@gmail.com](mailtp:jakenovelli11@gmail.com)
+- [jakenovelli11@gmail.com](mailto:jakenovelli11@gmail.com)
 - [GitHub](https://github.com/dnovelli1)
 - [LinkedIn](https://www.linkedin.com/in/david-jacob-novelli/)
 

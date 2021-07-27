@@ -16,9 +16,10 @@ Table of Contents
 3. [Utils](#utils)
 4. [React Components](https://github.com/dnovelli1/classproject#react-components)
 5. [Usage & Features](https://github.com/dnovelli1/classproject#usage--features)
-6. [License](#license)
-7. [Future Development](https://github.com/dnovelli1/classproject#future-development)
-8. [Contact Us](https://github.com/dnovelli1/classproject#contact-us)
+6. [Installation](#Installation)
+7. [License](#license)
+8. [Future Development](https://github.com/dnovelli1/classproject#future-development)
+9. [Contact Us](https://github.com/dnovelli1/classproject#contact-us)
 
 <br>
 <hr>
@@ -229,6 +230,24 @@ router.delete('/books/:id', async (req, res) => {
 Here you can see how a user's **Saved** books list and them deleting a book.
 
 ![saved-delete](./client/assets/images/saved-delete.gif)
+
+
+## Installation
+
+Download the project then run the command:
+
+```
+npm install
+```
+
+**Start the App** 
+
+Run the follwing command:
+
+```
+npm run start:dev
+```
+
 
 
 ## License
